@@ -245,9 +245,7 @@ export default function Home() {
         width="100%"
         maxWidth="800px"
         spacing={2}
-        overflow="auto"
-        mt={2}
-        sx={{ maxHeight: '500px' }} // Limit height for scroll
+        sx={{ maxHeight: '500px', overflowY: 'auto' }} // Limit height for scroll
       >
         {filteredPantryList.map((item) => (
           <Stack
