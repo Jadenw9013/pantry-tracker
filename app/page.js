@@ -268,7 +268,7 @@ export default function Home() {
                 setNewQuantity(item.quantity);
                 handleOpen();
               }}>
-                Edit
+                Update
               </Button>
               <Button variant="contained" color="error" onClick={() => removeItem(item.id)}>
                 Remove
