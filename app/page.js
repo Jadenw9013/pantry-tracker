@@ -246,7 +246,7 @@ export default function Home() {
   maxWidth="800px"
   spacing={2}
   sx={{
-    maxHeight: '500px', // Limit height for scroll
+    maxHeight: '200px', // Limit height for scroll
     overflowY: 'auto', // Enable vertical scroll
   }}
 >
