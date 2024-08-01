@@ -242,13 +242,6 @@ export default function Home() {
       </Stack>
 
       <Stack
-        width="100%"
-        maxWidth="800px"
-        spacing={2}
-        sx={{ maxHeight: '500px', overflowY: 'auto' }} // Limit height for scroll
-      >
-        {filteredPantryList.map((item) => (
-          <Stack
   width="100%"
   maxWidth="800px"
   spacing={2}
