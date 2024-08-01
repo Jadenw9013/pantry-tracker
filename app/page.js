@@ -249,32 +249,43 @@ export default function Home() {
       >
         {filteredPantryList.map((item) => (
           <Stack
-            key={item.id}
-            direction="row"
-            spacing={2}
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            <Box sx={itemStyle}>
-              <Typography variant="h6" color="textPrimary">
-                {item.id.charAt(0).toUpperCase() + item.id.slice(1)} ({item.quantity})
-              </Typography>
-            </Box>
-            <Stack direction="row" spacing={1}>
-              <Button variant="outlined" onClick={() => {
-                setEditItem(item.id);
-                setNewQuantity(item.quantity);
-                handleOpen();
-              }}>
-                Update
-              </Button>
-              <Button variant="contained" color="error" onClick={() => removeItem(item.id)}>
-                Remove
-              </Button>
-            </Stack>
-          </Stack>
-        ))}
+  width="100%"
+  maxWidth="800px"
+  spacing={2}
+  sx={{
+    maxHeight: '500px', // Limit height for scroll
+    overflowY: 'auto', // Enable vertical scroll
+  }}
+>
+  {filteredPantryList.map((item) => (
+    <Stack
+      key={item.id}
+      direction="row"
+      spacing={2}
+      alignItems="center"
+      justifyContent="space-between"
+    >
+      <Box sx={itemStyle}>
+        <Typography variant="h6" color="textPrimary">
+          {item.id.charAt(0).toUpperCase() + item.id.slice(1)} ({item.quantity})
+        </Typography>
+      </Box>
+      <Stack direction="row" spacing={1}>
+        <Button variant="outlined" onClick={() => {
+          setEditItem(item.id);
+          setNewQuantity(item.quantity);
+          handleOpen();
+        }}>
+          Update
+        </Button>
+        <Button variant="contained" color="error" onClick={() => removeItem(item.id)}>
+          Remove
+        </Button>
       </Stack>
+    </Stack>
+  ))}
+</Stack>
+
     </Box>
   );
 }
