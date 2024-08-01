@@ -13,7 +13,7 @@ const modalStyle = {
   width: '90%',
   maxWidth: 500,
   bgcolor: 'background.paper',
-  border: '1px solid #ddd',
+  border: '2px solid #000', // Bold border
   borderRadius: '8px',
   boxShadow: 24,
   p: 4,
@@ -39,7 +39,7 @@ const headerStyle = {
   width: '100%',
   maxWidth: '800px',
   bgcolor: '#f5f5f5',
-  border: '1px solid #ddd',
+  border: '2px solid #000', // Bold border
   borderRadius: '8px',
   p: 2,
   display: 'flex',
@@ -56,7 +56,7 @@ const itemStyle = {
   bgcolor: '#fafafa',
   borderRadius: '8px',
   boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
-  border: '1px solid #ddd',
+  border: '2px solid #000', // Bold border
   p: 2,
 };
 
@@ -242,43 +242,45 @@ export default function Home() {
       </Stack>
 
       <Stack
-  width="100%"
-  maxWidth="800px"
-  spacing={2}
-  sx={{
-    maxHeight: '200px', // Limit height for scroll
-    overflowY: 'auto', // Enable vertical scroll
-  }}
->
-  {filteredPantryList.map((item) => (
-    <Stack
-      key={item.id}
-      direction="row"
-      spacing={2}
-      alignItems="center"
-      justifyContent="space-between"
-    >
-      <Box sx={itemStyle}>
-        <Typography variant="h6" color="textPrimary">
-          {item.id.charAt(0).toUpperCase() + item.id.slice(1)} ({item.quantity})
-        </Typography>
-      </Box>
-      <Stack direction="row" spacing={1}>
-        <Button variant="outlined" onClick={() => {
-          setEditItem(item.id);
-          setNewQuantity(item.quantity);
-          handleOpen();
-        }}>
-          Update
-        </Button>
-        <Button variant="contained" color="error" onClick={() => removeItem(item.id)}>
-          Remove
-        </Button>
+        width="100%"
+        maxWidth="800px"
+        spacing={2}
+        sx={{
+          maxHeight: '300px', // Limit height for scroll
+          overflowY: 'auto', // Enable vertical scroll
+          border: '2px solid #000', // Bold border around the stack
+          borderRadius: '8px', // Add border-radius for a better look
+          p: 2, // Padding for better appearance
+        }}
+      >
+        {filteredPantryList.map((item) => (
+          <Stack
+            key={item.id}
+            direction="row"
+            spacing={2}
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Box sx={itemStyle}>
+              <Typography variant="h6" color="textPrimary">
+                {item.id.charAt(0).toUpperCase() + item.id.slice(1)} ({item.quantity})
+              </Typography>
+            </Box>
+            <Stack direction="row" spacing={1}>
+              <Button variant="outlined" onClick={() => {
+                setEditItem(item.id);
+                setNewQuantity(item.quantity);
+                handleOpen();
+              }}>
+                Update
+              </Button>
+              <Button variant="contained" color="error" onClick={() => removeItem(item.id)}>
+                Remove
+              </Button>
+            </Stack>
+          </Stack>
+        ))}
       </Stack>
-    </Stack>
-  ))}
-</Stack>
-
     </Box>
   );
 }
